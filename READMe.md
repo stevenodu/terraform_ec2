@@ -1,7 +1,8 @@
+Deploying ec2 instances into AWS via Terraform.
+
 The Terraform script is divided into multiple files for better organization.
 
 Directory Structure
-# Let's assume the following structure:
 # - main.tf
 # - variables.tf
 # - outputs.tf
