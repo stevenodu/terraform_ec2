@@ -1,10 +1,11 @@
-resource "aws_instance" "ec2" {
-  count         = var.instance_count
+resource "aws_instance" "ec2_instance" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  key_name      = var.key_name
+  count         = var.instance_count
 
-  tags = merge(var.tags, {
-    Name = "EC2-Instance-${count.index + 1}"
-  })
+  key_name = aws_key_pair.ec2_key_pair.key_name
+
+  tags = {
+    Name = "${var.instance_name}-${count.index}"
+  }
 }
